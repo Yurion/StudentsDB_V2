@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Сервіс Обліку Студентів</title>
+    <meta name="description" value="Система Обліку Студентів Навчального Закладу">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+          integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css"-->
+    <!--integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">-->
+
+    <link rel="stylesheet" href="./css/main.css">
+
+</head>
+<body>
+
+<!--Start Conteiner-->
+<div class="container">
+
+    <!--Start Header-->
+    <div class="row" id="header">
+
+        <!--Logo-->
+        <div class="col-xs-12">
+            <h1>Форма редагування Студента</h1>
+        </div>
+
+    </div>
+    <!--End Header-->
+
+    <!--Start Main Page Content-->
+    <div class="row" id="content-columns">
+        <div class="col-xs-12" id="content-column">
+
+            <form class="form-horizontal" role="form">
+                <div class="form-group">
+                    <label for="inputName" class="col-xs-2 control-label">Ім'я*</label>
+                    <div class="col-sm-3">
+                        <input type="text" class="form-control" id="inputName" placeholder="Ім'я">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputFatherName" class="col-xs-2 control-label">По-батькові</label>
+                    <div class="col-sm-3">
+                        <input type="text" class="form-control" id="inputFatherName" placeholder="По-батькові">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputSecondName" class="col-xs-2 control-label">Прізвище*</label>
+                    <div class="col-sm-3">
+                        <input type="text" class="form-control" id="inputSecondName" placeholder="Прізвище">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputNumberTicket" class="col-xs-2 control-label">№ Білету*</label>
+                    <div class="col-sm-3">
+                        <input type="number" class="form-control" id="inputNumberTicket" placeholder="№ Білету">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputBirthDay" class="col-xs-2 control-label">День народження</label>
+                    <div class="col-sm-3">
+                        <input type="date" class="form-control" id="inputBirthDay">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="exampleInputFile" class="col-xs-2 control-label">Фото</label>
+                    <div class="col-sm-6">
+                        Наразі: <a href="#">my_foto_example.jpg</a>
+                        <input type="checkbox">Очистити
+                        <br/>
+                        <br/>
+                        Змінити: <input type="file" id="exampleInputFile">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="inputGroup" class="col-xs-2 control-label">Група*</label>
+                    <div class="col-sm-3">
+                        <select class="form-control" id="inputGroup">
+                            <option value="">МтМ - 21, Подоба Віталій (№ 254)</option>
+                            <option value="">МтМ - 22, Корост Андрій (№ 2123)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="inputNotes" class="col-xs-2 control-label">Додаткові Нотатки</label>
+                    <div class="col-sm-3">
+                        <textarea class="form-control" id="inputNotes"></textarea>
+                    </div>
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+    <!--End Main Page Content-->
+
+
+    <!--Start Footer-->
+    <div class="row" id="form_footer">
+        <div class="col-xs-7">
+            <div class="text-center">
+                <button class="btn btn-large btn-primary" type="button">Зберегти</button>
+                <button class="btn btn-large" type="button">Скасувати</button>
+            </div>
+
+        </div>
+    </div>
+    <!--End Footer-->
+
+</div>
+<!--End Conteiner-->
+
+
+
+
+<!--Scripts: jQuery and Bootstrap-->
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
+        integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+</body>
+</html>
