@@ -31,4 +31,7 @@ urlpatterns = [
     url(r'^groups/add/$', students.views.groups_add, name='groups_add'),
     url(r'^groups/(?P<gid>\d+)/edit/$', students.views.groups_edit, name='groups_edit'),
     url(r'^groups/(?P<gid>\d+)/delete/$', students.views.groups_delete, name='groups_delete'),
+
+    # Visiting urls
+    url(r'^journal/$', students.views.visiting_list, name='journal')
 ]

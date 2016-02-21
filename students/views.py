@@ -38,40 +38,66 @@ def students_list(request):
     return render(request, 'students/students_list.html', {'students': students})
 
 
-def students_add(requst):
+def students_add(request):
     return HttpResponse('<h1>Student Add Form</h1>')
 
-def students_edit(requst, sid):
+def students_edit(request, sid):
     return HttpResponse('<h1>Edit Student %s</h1>' % sid)
 
-def students_delete(requst, sid):
+def students_delete(request, sid):
     return HttpResponse('<h1>Delete Student %s</h1>' % sid)
 
 # Views for Groups
 
 def group_list(request):
-    return HttpResponse('<h1>Groups Listing</h1>')
+    groups = (
+        {
+            'id': 1,
+            'group_name': u'МтМ-21',
+            'leader': {'id': 1, 'name': u'Ячменев Олег'},
+        },
 
-def groups_add(requst):
+        {
+            'id': 2,
+            'group_name': u'МтМ-22',
+            'leader': {'id': 2, 'name': u'	Віталій Подоба'},
+        },
+
+        {
+            'id': 3,
+            'group_name': u'МтМ-23',
+            'leader': {'id': 3, 'name': u'Іванов Андрій'},
+        },
+    )
+    return render(request, 'students/groups_list.html', {'groups': groups})
+
+def groups_add(request):
     return HttpResponse('<h1>Group Add Form</h1>')
 
-def groups_edit(requst, sid):
-    return HttpResponse('<h1>Edit Group %s</h1>' % sid)
+def groups_edit(request, gid):
+    return HttpResponse('<h1>Edit Group %s</h1>' % gid)
 
-def groups_delete(requst, sid):
-    return HttpResponse('<h1>Delete Group %s</h1>' % sid)
+def groups_delete(request, gid):
+    return HttpResponse('<h1>Delete Group %s</h1>' % gid)
 
+# Views for Visiting
 
-
-
-
-
-
-
-
-
-
-
+def visiting_list(request):
+    students = (
+        {
+            'id': 1,
+            'name': u'Ячменев Олег'
+        },
+        {
+            'id': 2,
+            'name': u'Віталій Подоба'
+        },
+        {
+            'id': 3,
+            'name': u'Іванов Андрій'
+        },
+    )
+    return render(request, 'students/visiting_list.html', {'students': students})
 
 
 

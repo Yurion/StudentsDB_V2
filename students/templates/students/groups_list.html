@@ -1,0 +1,57 @@
+{% extends "students/base.html" %}
+
+{% load static from staticfiles %}
+
+{% block meta_title %}Групи{%  endblock meta_title %}
+
+{% block title %}Групи{% endblock title %}
+
+{% block content %}
+
+    <!--Add Group Button-->
+    <a href="{% url 'groups_add' %}" class="btn btn-primary" role="button">Додати Групу</a>
+
+    {% comment %}
+    <p>Request.path: {{ request.get_host }}</p>
+    {% endcomment %}
+
+    {% if groups %}
+        <!-- Start Students Listing -->
+        <table class="table table-striped table-hover">
+            <thead>
+            <tr>
+                <th>№</th>
+                <th><a href="#">Назва &uarr;</a></th>
+                <th><a href="#">Староста</a></th>
+                <th>Дії</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for group in groups %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td><a href="{% url 'groups_edit' group.id %}">{{ group.group_name }}</a></td>
+                <td><a href="{% url 'students_edit' group.leader.id %}">{{ group.leader.name }}</a></td>
+                <td>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-default dropdown-toggle"
+                                data-toggle="dropdown" aria-expanded="false">
+                            Дія <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="{% url 'groups_edit' group.id %}">Редагувати</a></li>
+                            <li><a href="#">Відвідування</a></li>
+                            <li><a href="{% url 'groups_delete' group.id %}">Видалити</a></li>
+                        </ul>
+                    </div>
+                </td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        <!-- End Students Listing -->
+
+    {% else %} <p>Групи відсутні</p>
+    {% endif %}
+
+{% endblock content %}
