@@ -10,9 +10,9 @@
     <!--Add Student Button-->
     <a href="{% url 'students_add' %}" class="btn btn-primary" role="button">Додати Студента</a>
 
-    {% comment %}
-    <p>Request.path: {{ request.path }}</p>
-    {% endcomment %}
+{#    {% comment %}#}
+    <p>Request.path: {{ request.build_absolute_uri }}**{{ object.get_absolute_url }}</p>
+{#    {% endcomment %}#}
 
     <!-- Start Students Listing -->
     {% if students %}
