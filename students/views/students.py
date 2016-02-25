@@ -6,34 +6,15 @@ from ..models import Student
 
 
 def students_list(request):
-    # return render(request, 'students/students_list.html', {})
-    # students = (
-    #     {
-    #         'id': 1,
-    #         'first_name': u'Віталій',
-    #         'last_name': u'Подоба',
-    #         'ticket': 235,
-    #         'image': 'img/podoba3.jpg'
-    #     },
-    #
-    #     {
-    #         'id': 2,
-    #         'first_name': u'Корост',
-    #         'last_name': u'Андрій',
-    #         'ticket': 2123,
-    #         'image': 'img/me.jpeg'
-    #     },
-    #
-    #     {
-    #         'id': 3,
-    #         'first_name': u'Притула',
-    #         'last_name': u'Тарас',
-    #         'ticket': 5332,
-    #         'image': 'img/piv.png'
-    #     },
-    # )
-
     students = Student.objects.all()
+
+    # try to order students list
+    order_by = request.GET.get('order_by', '')
+    if order_by in ('last_name', 'first_name', 'ticket'):
+        students = students.order_by(order_by)
+        if request.GET.get('reverse', '') == 1:
+            students = students.reverse()
+
     return render(request, 'students/students_list.html', {"students": students})
 
 
