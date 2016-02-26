@@ -99,15 +99,27 @@
     {% else %} <p>Список студентів пустий</p>
     {% endif %}
 
+    {% if students.has_other_pages %}
+        {% with order_by=request.GET.order_by reverse=request.GET.reverse %}
     <nav>
         <ul class="pagination pagination-sm">
-            <li><a href="#"><span aria-hidden="true">&laquo;</span><span class="sr-only">Попередня</span></a></li>
-            <li class="active"><a href="#">1</a></li>
-            <li><a href="#">2</a></li>
-            <li><a href="#">3</a></li>
-            <li><a href="#">4</a></li>
-            <li><a href="#">5</a></li>
-            <li><a href="#"><span aria-hidden="true">&raquo;</span><span class="sr-only">Наступна</span></a></li>
+            <li>
+                <a href="{% url 'home' %}?page=1&amp;order_by={{ order_by }}&amp;reverse={{ reverse }}"><span aria-hidden="true">&laquo;</span><span class="sr-only">Попередня</span></a>
+            </li>
+
+            {% for p in students.paginator.page_range %}
+            <li {% if students.number == p %}class="active"{% endif %}>
+                <a href="{% url 'home' %}?page={{ p }}&amp;order_by={{ order_by }}&amp;reverse={{ reverse }}">{{ p }}</a>
+            </li>
+            {% endfor %}
+
+            <li>
+                <a href="{% url 'home' %}?page={{ students.paginator.num_pages }}&amp;order_by={{ order_by }}&amp;reverse={{ reverse }}"><span aria-hidden="true">&raquo;</span><span class="sr-only">Наступна</span></a>
+            </li>
         </ul>
     </nav>
+        {% endwith %}
+    {% endif %}
+
+
 {% endblock content %}
